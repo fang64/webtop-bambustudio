@@ -18,6 +18,8 @@ RUN \
     libfuse2 \
     wget \
     unzip \
+    gstreamer1.0-plugins-bad \
+    gstreamer1.0-libav \
     libwebkit2gtk-4.0-37 \
     firefox \
     mousepad \
