@@ -28,17 +28,16 @@ RUN \
     xubuntu-default-settings \
     xubuntu-icon-theme && \
   echo "**** Install Orca Slicer ****" && \
-  wget https://github.com/SoftFever/OrcaSlicer/releases/download/v1.6.3/OrcaSlicer_V1.6.3_Linux.zip -O /tmp/Orca.zip && \
-  unzip /tmp/Orca.zip -d /opt/ && \
-  chmod +x /opt/OrcaSlicer_ubu64.AppImage && \
+  curl -s -L https://api.github.com/repos/SoftFever/OrcaSlicer/releases/latest | grep -wo "https.*Linux.*AppImage" | wget -qi- -O /opt/OrcaSlicer.AppImage && \
+  chmod +x /opt/OrcaSlicer.AppImage && \
   cd /opt && \
-  ./OrcaSlicer_ubu64.AppImage --appimage-extract && \
+  ./OrcaSlicer.AppImage --appimage-extract && \
   mv /opt/squashfs-root /opt/orcaslicer && \
   cp /opt/orcaslicer/OrcaSlicer.desktop /usr/share/applications && \
   sed -i 's/Exec=AppRun/Exec=\/opt\/orcaslicer\/AppRun/' /usr/share/applications/OrcaSlicer.desktop && \
   chmod 755 /usr/share/applications/OrcaSlicer.desktop && \
   echo "**** Install Bambu Studio ****" && \
-  wget https://github.com/bambulab/BambuStudio/releases/download/v01.06.02.04/Bambu_Studio_linux_ubuntu_v01.06.02.04-20230427094209.AppImage -O /opt/BambuStudio.AppImage && \
+  curl -s -L https://api.github.com/repos/bambulab/BambuStudio/releases/latest | grep -wo "https.*ubuntu.*AppImage" | wget -qi- -O /opt/BambuStudio.AppImage && \
   chmod +x /opt/BambuStudio.AppImage && \
   cd /opt && \
   ./BambuStudio.AppImage --appimage-extract && \
