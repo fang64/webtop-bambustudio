@@ -36,6 +36,7 @@ RUN \
   cp /opt/orcaslicer/OrcaSlicer.desktop /usr/share/applications && \
   sed -i 's/Exec=AppRun/Exec=\/opt\/orcaslicer\/AppRun/' /usr/share/applications/OrcaSlicer.desktop && \
   chmod 755 /usr/share/applications/OrcaSlicer.desktop && \
+  rm /opt/OrcaSlicer.AppImage && \
   echo "**** Install Bambu Studio ****" && \
   curl -s -L https://api.github.com/repos/bambulab/BambuStudio/releases/latest | grep -wo "https.*ubuntu.*AppImage" | wget -qi- -O /opt/BambuStudio.AppImage && \
   chmod +x /opt/BambuStudio.AppImage && \
@@ -45,6 +46,7 @@ RUN \
   cp /opt/bambustudio/BambuStudio.desktop /usr/share/applications && \
   sed -i 's/Exec=AppRun/Exec=\/opt\/bambustudio\/AppRun/' /usr/share/applications/BambuStudio.desktop && \
   chmod 755 /usr/share/applications/BambuStudio.desktop && \
+  rm /opt/BambuStudio.AppImage && \
   echo "**** xfce tweaks ****" && \
   rm -f \
     /etc/xdg/autostart/xscreensaver.desktop && \
