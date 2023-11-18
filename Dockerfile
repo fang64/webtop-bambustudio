@@ -20,13 +20,13 @@ RUN \
     unzip \
     gstreamer1.0-plugins-bad \
     gstreamer1.0-libav \
-    libwebkit2gtk-4.0-37 \
     firefox \
     mousepad \
     xfce4-terminal \
     xfce4 \
     xubuntu-default-settings \
     xubuntu-icon-theme && \
+  apt-get install libwebkit2gtk-4.0-37 -y && \
   echo "**** Install Orca Slicer ****" && \
   curl -s -L https://api.github.com/repos/SoftFever/OrcaSlicer/releases/latest | grep -wo "https.*Linux.*AppImage" | wget -qi- -O /opt/OrcaSlicer.AppImage && \
   chmod +x /opt/OrcaSlicer.AppImage && \
